@@ -1,4 +1,4 @@
-#answer = 
+#answer = 249620106
 #249860237 too high
 
 from dataclasses import dataclass
@@ -61,7 +61,7 @@ with open(filename, "r") as f:
             typ = 1
         elif len(counts) == 3:
             if naturals == 3 or naturals == 4:
-                type = 3
+                typ = 3
             else:
                 v = list(counts.values())
                 if v[0] == 2 or v[1] == 2 or v[2] == 2:
@@ -96,6 +96,6 @@ total = 0
 for i, h in enumerate(hands):
     h.rank = i+1
     total += h.rank * h.bid
-    print(h)
+    if 0 in h.cards: print(h)
 
 print(total)
