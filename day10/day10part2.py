@@ -70,7 +70,7 @@ while cur != start:
     steps+=1
 
 
-for r in range(len(flood)):
+for r in range(len(flood)): #not a true flood fill... but good enough
     for c in range(len(flood[0])):
         char = flood[r][c]
         if char == "A" or char == "B":
