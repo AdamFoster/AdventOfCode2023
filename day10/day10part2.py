@@ -70,23 +70,24 @@ while cur != start:
     steps+=1
 
 
-for r in range(len(flood)): #not a true flood fill... but good enough
+for r in range(len(flood)): 
     for c in range(len(flood[0])):
         char = flood[r][c]
         if char == "A" or char == "B":
             visited = set()
+            candidates = set()
             visited.add((r,c))
-            going = True
-            while going:
-                going = False
+            candidates.add((r,c))
+            while len(candidates) > 0:
+                point = candidates.pop()
                 for d in [(1,0),(-1,0),(0,1),(0,-1)]:
-                    nr,nc = r+d[0], c+d[1]
+                    nr,nc = point[0]+d[0], point[1]+d[1]
                     if (nr,nc) in visited:
                         pass
                     else:
                         if 0<=nr<len(flood) and 0<=nc<len(flood[0]) and flood[nr][nc] == " ":
                             flood[nr][nc] = char
-                            going = True
+                            candidates.add((nr,nc))
                     visited.add((nr,nc))
 
 aes = 0
